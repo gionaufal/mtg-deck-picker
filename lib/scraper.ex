@@ -9,13 +9,9 @@ defmodule Scraper do
       {:ok, response} ->
         case response.status_code do
           200 ->
-            tournments =
-              response.body
-              |> Floki.find(".archetype-tile")
-              |> Enum.map(&extract_name_and_id/1)
-              |> Enum.sort(&(&1.name < &2.name))
-
-            {:ok, tournments}
+            response.body
+            |> Floki.find(".archetype-tile")
+            |> Enum.map(&extract_name_and_id/1)
 
           _ -> :error
         end
@@ -24,15 +20,21 @@ defmodule Scraper do
     end
   end
 
+  # def get_decks_by_price do
+  #   Scraper.get_decks
+  #   |> Enum.sort(&(&1.price |> String.split(" ") |> Enum.get(1) < &2.price) |> String.split(" ") |> Enum.get(1))
+  # end
+
   defp extract_name_and_id({_tag, attrs, children}) do
-    name =
+    [name, price, _] =
       Floki.raw_html(children)
       |> Floki.find(".deck-price-paper")
       |> Floki.text
+      |> String.split("\n")
 
     attrs = Enum.into(attrs, %{})
 
-    %{id: attrs["id"], name: name}
+    %{id: attrs["id"], name: name, price: price}
   end
 
 end
