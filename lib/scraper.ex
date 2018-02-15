@@ -32,9 +32,14 @@ defmodule Scraper do
       |> Floki.text
       |> String.split("\n")
 
+    link =
+      Floki.raw_html(children)
+      |> Floki.find(".deck-price-paper a")
+      |> Floki.attribute("href")
+
     attrs = Enum.into(attrs, %{})
 
-    %{id: attrs["id"], name: name, price: price}
+    %{id: attrs["id"], name: name, price: price, link: link}
   end
 
 end
