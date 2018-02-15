@@ -22,7 +22,7 @@ defmodule Mtgtopdecks.MixProject do
   defp deps do
     [
       {:httpoison, "~> 0.10.0"},
-      {:floki, "~> 0.11.0"}
+      {:floki, "~> 0.20.0"}
     ]
   end
 end
