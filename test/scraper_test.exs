@@ -12,7 +12,7 @@ defmodule ScraperTest do
     assert item == %{id: "44987",
                      link: ["/archetype/standard-mono-red-aggro-44987#paper"],
                      name: "Mono-Red Aggro",
-                     price: "$ 279"}
+                     price: 279}
   end
 
   test "sort by price" do

@@ -21,7 +21,7 @@ defmodule Mtgtopdecks.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:httpoison, "~> 0.10.0"},
+      {:httpoison, "~> 1.0.0"},
       {:floki, "~> 0.20.0"}
     ]
   end
