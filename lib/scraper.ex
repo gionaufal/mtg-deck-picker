@@ -1,7 +1,7 @@
 defmodule Scraper do
 
   @doc """
-  Fetch a list of tournments
+  Fetch a list of decks from MTGGoldfish
   """
 
   def get_decks do
@@ -20,10 +20,15 @@ defmodule Scraper do
     end
   end
 
-  # def get_decks_by_price do
-  #   Scraper.get_decks
-  #   |> Enum.sort(&(&1.price |> String.split(" ") |> Enum.get(1) < &2.price) |> String.split(" ") |> Enum.get(1))
-  # end
+  @doc """
+  Fetch a list of decks from MTGGoldfish sorted by price
+  """
+
+  def get_decks_by_price do
+    Scraper.get_decks
+    |> Enum.map(&treat_price/1)
+    |> Enum.sort(&(&1.price < &2.price))
+  end
 
   defp extract_name_and_id({_tag, attrs, children}) do
     [name, price, _] =
@@ -42,4 +47,9 @@ defmodule Scraper do
     %{id: attrs["id"], name: name, price: price, link: link}
   end
 
+  defp treat_price(map) do
+    Map.update!(map, :price, &(String.split(&1, " ")
+    |> Enum.at(1)
+    |> String.to_integer))
+  end
 end
