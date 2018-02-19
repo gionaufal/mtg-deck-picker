@@ -84,7 +84,9 @@ defmodule Scraper do
     if Enum.count(card_data) == 5 do
       [_, count, card, _, _] = card_data
 
-      %{count: count, card: card}
+      {int_count, _} = count |> :string.to_integer
+
+      %{count: int_count, card: card}
     end
   end
 end
