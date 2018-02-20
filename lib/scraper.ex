@@ -63,7 +63,7 @@ defmodule Scraper do
 
     attrs = Enum.into(attrs, %{})
 
-    cards = Scraper.cards(link)
+    cards = Scraper.cards(link) |> Enum.uniq
 
     %{id: attrs["id"], name: name, price: price, link: link, cards: cards}
   end
