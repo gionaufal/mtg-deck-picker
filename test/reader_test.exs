@@ -8,6 +8,6 @@ defmodule ReaderTest do
 
   test "list has cards and counts" do
     card = Reader.read_cards |> Enum.at(0)
-    assert card == %{card: "Ancient Crab", count: 2}
+    assert card == %{card: "Hyena Pack", count: 1}
   end
 end
