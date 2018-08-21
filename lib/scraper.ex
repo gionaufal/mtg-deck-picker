@@ -5,13 +5,19 @@ defmodule Scraper do
   """
 
   def get_decks do
+    caller = self()
     case HTTPoison.get("https://www.mtggoldfish.com/metagame/standard/full#paper") do
       {:ok, response} ->
         case response.status_code do
           200 ->
             response.body
             |> Floki.find(".archetype-tile")
-            |> Enum.map(&extract_decks/1)
+            |> Enum.map(&(spawn(fn -> extract_decks(&1, caller) end)))
+            |> Enum.map(fn pid ->
+              receive do
+                {^pid, deck} -> deck
+              end
+            end)
             |> Enum.map(&treat_price/1)
 
           _ -> :error
@@ -49,7 +55,7 @@ defmodule Scraper do
     end
   end
 
-  defp extract_decks({_tag, attrs, children}) do
+  defp extract_decks({_tag, attrs, children}, caller) do
     [name, price, _] =
       Floki.raw_html(children)
       |> Floki.find(".deck-price-paper")
@@ -65,7 +71,7 @@ defmodule Scraper do
 
     cards = Scraper.cards(link) |> Enum.uniq
 
-    %{id: attrs["id"], name: name, price: price, link: link, cards: cards}
+    send(caller, {self(), %{id: attrs["id"], name: name, price: price, link: link, cards: cards}})
   end
 
   defp treat_price(map) do

@@ -180,7 +180,7 @@
 1 Resplendent Griffin
 2 Sworn Guardian
 3 Mausoleum Harpy
-1 Island
+30 Island
 1 Aggressive Urge
 3 Aquatic Incursion
 3 Fanatical Firebrand
@@ -195,7 +195,7 @@
 1 Martyr of Dusk
 1 Thunderherd Migration
 5 Moment of Triumph
-1 Mountain
+30 Mountain
 1 Mutiny
 4 Naturalize
 4 Negate
@@ -205,13 +205,13 @@
 3 Admiral's Order
 2 Pride of Conquerors
 1 Famished Paladin
-2 Swamp
+30 Swamp
 4 Sea Legs
 2 Stone Quarry
 1 Golden Demise
 1 Pirate's Pillage
 1 Forerunner of the Empire
-3 Plains
+30 Plains
 4 Jade Bearer
 2 Sun-Crested Pterodon
 3 Dire Fleet Neckbreaker
@@ -271,7 +271,4 @@
 2 Tricks of the Trade
 1 Sengir Vampire
 2 Divine Verdict
-8 Forest
-8 Island
-1 Swamp
-1 Plains
+30 Forest
