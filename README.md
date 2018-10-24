@@ -1,21 +1,10 @@
-# Mtgtopdecks
+# MTG Deck Picker
 
-**TODO: Add description**
+This is a work in progress project to find which top decks from [MTG Goldfish's Standard list](https://www.mtggoldfish.com/metagame/standard/full#paper) you can build with the cards you already have.
 
-## Installation
+Given a list of cards in `cards.txt`, the app compares your cards with the cards from these top decks, and tells you which and how many cards you are lacking to complete the deck. 
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `mtgtopdecks` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:mtgtopdecks, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/mtgtopdecks](https://hexdocs.pm/mtgtopdecks).
-
+### TODO:
+- Encapsulate it in a CLI
+- Create a web interface (probably using Phoenix)
+- Publish and deploy
