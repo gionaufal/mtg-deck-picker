@@ -28,7 +28,13 @@ defmodule Mtgtopdecks do
   def return_deck({k, v}) do
     my_cards = Reader.read_cards |> Map.new(&Map.pop(&1, :card))
     cards_keys = my_cards |> Map.keys
-    %{card: k, in_deck: v.count, present: Enum.member?(cards_keys, k), lack: count_cards(k, v.count)}
+    %{
+      card: k,
+      in_deck: v.count,
+      price: v.price,
+      present: Enum.member?(cards_keys, k),
+      lack: count_cards(k, v.count)
+    }
   end
 
   def count_cards(card, deck_card_count) do

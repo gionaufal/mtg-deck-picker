@@ -44,7 +44,7 @@ defmodule Scraper do
         case response.status_code do
           200 ->
             response.body
-            |> Floki.find(".deck-view-deck-table tr")
+            |> Floki.find("#tab-paper tr")
             |> Enum.map(&extract_card_and_count/1)
             |> Enum.filter(&(&1))
 
@@ -69,7 +69,14 @@ defmodule Scraper do
 
     attrs = Enum.into(attrs, %{})
 
-    cards = Scraper.cards(link) |> Enum.uniq
+    cards = Scraper.cards(link)
+            |> Enum.group_by(&(&1.card))
+            |> Enum.map(fn {key, value} -> %{
+              card: key,
+              count: value |> Enum.map(fn(x) -> x[:count] end)|> Enum.sum(), 
+              price: value |> Enum.map(fn(x) -> x[:price] end)|> Enum.sum()
+            } end)
+
 
     send(caller, {self(), %{id: attrs["id"], name: name, price: price, link: link, cards: cards}})
   end
@@ -88,11 +95,13 @@ defmodule Scraper do
       |> String.split("\n")
 
     if Enum.count(card_data) == 5 do
-      [_, count, card, _, _] = card_data
+      [_, count, card, price, _] = card_data
 
       {int_count, _} = count |> :string.to_integer
 
-      %{count: int_count, card: card}
+      {parsed_price, _} = Float.parse(price)
+
+      %{count: int_count, card: card, price: parsed_price}
     end
   end
 end
