@@ -36,29 +36,34 @@ defmodule MtgtopdecksTest do
         #   %{card: "Pia Nalaar", count: 3},
         #   %{card: "Sand Strangler", count: 1}
         # ]
-        name: "Mono-Red Aggro",
-        cards: [
-          %{card: "Abrade", present: false, lack: 1},
-          %{card: "Aethersphere Harvester", lack: 2, present: false},
-          %{card: "Ahn-Crop Crasher", lack: 3, present: true},
-          %{card: "Bomat Courier", lack: 4, present: false},
-          %{present: false, card: "Chandra's Defeat", lack: 2},
-          %{present: false, card: "Earthshaker Khenra", lack: 4},
-          %{card: "Fanatical Firebrand", lack: 0, present: true},
-          %{card: "Harsh Mentor", lack: 4, present: false},
-          %{present: false, card: "Hazoret the Fervent", lack: 4},
-          %{present: false, card: "Invigorated Rampage", lack: 4},
-          %{present: false, card: "Kari Zev, Skyship Raider", lack: 2},
-          %{present: false, card: "Key to the City", lack: 1},
-          %{card: "Lightning Strike", lack: 4, present: false},
-          %{card: "Mountain", lack: 0, present: true},
-          %{card: "Pia Nalaar", lack: 3, present: false},
-          %{present: false, card: "Release the Gremlins", lack: 1},
-          %{present: false, card: "Sand Strangler", lack: 1},
-          %{card: "Scavenger Grounds", present: false, lack: 1},
-          %{card: "Shock", present: true, lack: 1},
-          %{present: false, card: "Soul-Scar Mage", lack: 4},
-          %{card: "Sunscorched Desert", lack: 4, present: false}]
+        cards:
+        [
+          %{card: "Vineshaper Mystic", lack: 0, present: true, in_deck: 1, price: 0.18},
+          %{card: "Unsummon", lack: 0, present: true, in_deck: 4, price: 0.4},
+          %{present: true, card: "Tempest Caller", lack: 0, in_deck: 3, price: 0.6000000000000001},
+          %{card: "Naturalize", lack: 0, present: true, in_deck: 2, price: 0.28},
+          %{card: "Life Goes On", lack: 0, present: true, in_deck: 1, price: 0.15},
+          %{card: "Jade Bearer", lack: 0, present: true, in_deck: 3, price: 0.45},
+          %{lack: 0, present: true, card: "Island", in_deck: 5, price: 0.0},
+          %{card: "Forest", lack: 0, present: true, in_deck: 5, price: 0.0}, 
+          %{card: "Essence Scatter", lack: 0, present: true, in_deck: 2, price: 0.28},
+          %{card: "Deeproot Waters", lack: 0, present: true, in_deck: 2, price: 0.5},
+          %{present: false, card: "Crashing Tide", lack: 1, in_deck: 1, price: 0.13},
+          %{card: "Spell Pierce", lack: 2, present: true, in_deck: 3, price: 0.6},
+          %{card: "Negate", lack: 2, present: true, in_deck: 3, price: 0.42},
+          %{present: true, card: "Merfolk Branchwalker", lack: 2, in_deck: 4, price: 4.32},
+          %{lack: 3, card: "Silvergill Adept", present: true, in_deck: 4, price: 2.24},
+          %{card: "Merfolk Mistbinder", lack: 3, present: true, in_deck: 4, price: 5.0},
+          %{card: "Jungleborn Pioneer", lack: 3, present: true, in_deck: 4, price: 0.6},
+          %{present: false, card: "Unclaimed Territory", lack: 4, in_deck: 4, price: 14.36},
+          %{card: "Kumena, Tyrant of Orazca", lack: 4, present: false, in_deck: 4, price: 59.96},
+          %{lack: 4, present: false, card: "Kumena's Speaker", in_deck: 4, price: 1.36},
+          %{lack: 4, present: false, card: "Hashep Oasis", in_deck: 4, price: 5.2},
+          %{card: "Deeproot Elite", in_deck: 4, lack: 4, present: false, price: 14.0},
+          %{card: "Botanical Sanctum", in_deck: 4, lack: 4, present: false, price: 36.0}],
+          name: "UG",
+          cards_lacking: 40,
+          unique_cards_lacking: 13
       }
     end
   end

@@ -13,34 +13,33 @@ defmodule ScraperTest do
     use_cassette "scraper_get_decks" do
       item = Scraper.get_decks |> Enum.at(0)
 
-      assert item == %{id: "44987",
+      assert item == %{
+        id: "44987",
         link: ["/archetype/standard-mono-red-aggro-44987#paper"],
         name: "Mono-Red Aggro",
         price: 292,
         cards: [
-          %{card: "Bomat Courier", count: 4},
-          %{card: "Fanatical Firebrand", count: 2},
-          %{card: "Soul-Scar Mage", count: 4},
-          %{card: "Earthshaker Khenra", count: 4},
-          %{card: "Kari Zev, Skyship Raider", count: 2},
-          %{card: "Ahn-Crop Crasher", count: 4},
-          %{card: "Hazoret the Fervent", count: 4},
-          %{card: "Shock", count: 4},
-          %{card: "Abrade", count: 2},
-          %{card: "Invigorated Rampage", count: 4},
-          %{card: "Lightning Strike", count: 4},
-          %{card: "Mountain", count: 17},
-          %{card: "Scavenger Grounds", count: 1},
-          %{card: "Sunscorched Desert", count: 4},
-          %{card: "Chandra's Defeat", count: 2},
-          %{card: "Release the Gremlins", count: 1},
-          %{card: "Abrade", count: 1},
-          %{card: "Harsh Mentor", count: 4},
-          %{card: "Key to the City", count: 1},
-          %{card: "Aethersphere Harvester", count: 2},
-          %{card: "Pia Nalaar", count: 3},
-          %{card: "Sand Strangler", count: 1}
-        ]
+          %{card: "Abrade", count: 3, price: 4.5},
+          %{count: 2, card: "Aethersphere Harvester", price: 6.04},
+          %{count: 4, card: "Ahn-Crop Crasher", price: 1.4},
+          %{count: 4, card: "Bomat Courier", price: 4.92},
+          %{count: 2, card: "Chandra's Defeat", price: 0.74},
+          %{count: 4, card: "Earthshaker Khenra", price: 6.24},
+          %{card: "Fanatical Firebrand", count: 2, price: 0.3},
+          %{count: 4, card: "Harsh Mentor", price: 4.64},
+          %{card: "Hazoret the Fervent", count: 4, price: 80.0},
+          %{card: "Invigorated Rampage", count: 4, price: 1.2},
+          %{card: "Kari Zev, Skyship Raider", count: 2, price: 2.64},
+          %{card: "Key to the City", count: 1, price: 0.46},
+          %{card: "Lightning Strike", count: 4, price: 0.68},
+          %{card: "Mountain", count: 17, price: 0.0},
+          %{card: "Pia Nalaar", count: 3, price: 1.2},
+          %{card: "Release the Gremlins", count: 1, price: 0.38},
+          %{count: 1, card: "Sand Strangler", price: 0.2},
+          %{card: "Scavenger Grounds", count: 1, price: 2.25},
+          %{card: "Shock", count: 4, price: 0.6},
+          %{card: "Soul-Scar Mage", count: 4, price: 10.0},
+          %{card: "Sunscorched Desert", count: 4, price: 0.8}]
       }
     end
   end
