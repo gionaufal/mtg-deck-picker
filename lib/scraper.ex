@@ -32,8 +32,7 @@ defmodule Scraper do
   """
 
   def get_decks_by_price do
-    Scraper.get_decks
-    |> Enum.sort(&(&1.price < &2.price))
+    get_decks() |> Enum.sort(&(&1.price < &2.price))
   end
 
   def cards(url) do

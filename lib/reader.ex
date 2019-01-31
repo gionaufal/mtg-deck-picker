@@ -9,6 +9,14 @@ defmodule Reader do
     treat_data(data)
   end
 
+  def my_cards do
+    read_cards() |> Map.new(&Map.pop(&1, :card))
+  end
+
+  def cards_keys do
+    my_cards() |> Map.keys
+  end
+
   defp treat_data(data) do
     data |> String.split("\n") |> Enum.map(&find_card_and_count/1)
   end
