@@ -39,7 +39,7 @@ export a file from there in this format.
  - In your terminal, run `mix deps.get` to install the project's dependencies.
  - Run `iex -S mix` to open the console (right now this is not a working CLI)
  - To get the decks you can build with your cards, run `decks =
-   Mtgtopdecks.compare_decs`. It will return all the decks sorted by the least
+   Mtgtopdecks.compare_decks`. It will return all the decks sorted by the least
 cards lacking. That way, you can consult decks using, for example,
 `Enum.at(decks, 0)` (this will bring you the deck that you have most cards) and
 see which cards are lacking for you to build.
